@@ -1,0 +1,27 @@
+﻿<Window x:Class="AdapterDesignePatter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdapterDesignePatter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" Margin="20" Width="300">
+
+            <TextBlock Text="Name" FontSize="30"/>
+            <TextBox Height="30" Text="{Binding Human.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Surname" FontSize="30"/>
+            <TextBox Height="30" Text="{Binding Human.Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Speciality" FontSize="30"/>
+            <TextBox Height="30" Text="{Binding Human.Speciality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Clik" FontSize="20" Command="{Binding ClickCommand}"/>
+        </StackPanel>
+        <Canvas x:Name="myCanvas">
+            <Label Content="Json" FontSize="20" Canvas.Right="90" Canvas.Top="120"/>
+            <RadioButton x:Name="JsonRb" Canvas.Right="150" Canvas.Top="135" IsChecked="False"  Command="{Binding JsonCommand}"/>
+            <Label Content="Xml" FontSize="20" Canvas.Right="90" Canvas.Top="160"/>
+            <RadioButton x:Name="XamlRb"  Canvas.Right="150" Canvas.Top="175" IsChecked="False" Command="{Binding XamlCommand}"/>
+        </Canvas>
+    </Grid>
+</Window>
